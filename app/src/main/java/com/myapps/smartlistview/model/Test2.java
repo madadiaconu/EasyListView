@@ -1,4 +1,4 @@
-package com.myapps.smartlistview.demo;
+package com.myapps.smartlistview.model;
 
 /**
  * Created by Diaconu Madalina on 23.01.2016.
