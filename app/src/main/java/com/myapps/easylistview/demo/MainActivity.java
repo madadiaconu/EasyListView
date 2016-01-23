@@ -1,12 +1,12 @@
-package com.myapps.smartlistview;
+package com.myapps.easylistview.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.myapps.smartlistview.bl.SmartListView;
-import com.myapps.smartlistview.model.Test1;
-import com.myapps.smartlistview.model.Test2;
+import com.myapps.easylistview.R;
+import com.myapps.easylistview.bl.EasyListView;
+import com.myapps.easylistview.exceptions.InvalidModelClassException;
+import com.myapps.easylistview.exceptions.InvalidXmlException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +30,13 @@ public class MainActivity extends Activity {
         test2List.add(new Test2("a",R.drawable.user));
         test2List.add(new Test2("b",R.drawable.pass));
 
-        SmartListView smartListView = (SmartListView)findViewById(R.id.smartListView);
-        Log.d("zzznr",test2List.size()+"");
-        smartListView.init(R.layout.view_item_listview2,test2List);
+        EasyListView easyListView = (EasyListView)findViewById(R.id.smartListView);
+        try {
+            easyListView.init(R.layout.view_item_listview2,test2List);
+        } catch (InvalidModelClassException invalidModelClassException) {
+            invalidModelClassException.printStackTrace();
+        } catch (InvalidXmlException e) {
+            e.printStackTrace();
+        }
     }
 }

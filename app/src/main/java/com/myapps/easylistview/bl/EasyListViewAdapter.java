@@ -1,7 +1,6 @@
-package com.myapps.smartlistview.bl;
+package com.myapps.easylistview.bl;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,22 +8,20 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.myapps.smartlistview.model.Widget;
-
 import java.lang.reflect.Field;
 import java.util.List;
 
 /**
  * Created by Diaconu Madalina on 23.01.2016.
  */
-public class SmartListAdapter extends ArrayAdapter<Object> {
+public class EasyListViewAdapter extends ArrayAdapter<Object> {
 
     private Context context;
     private int layout;
     private List<Object> objects;
     private List<Widget> widgets;
 
-    public SmartListAdapter(Context context, int resource, List<Object> objects, List<Widget> widgets) {
+    public EasyListViewAdapter(Context context, int resource, List<Object> objects, List<Widget> widgets) {
         super(context, resource, objects);
         this.context = context;
         this.layout = resource;

@@ -1,4 +1,4 @@
-package com.myapps.smartlistview.model;
+package com.myapps.easylistview.bl;
 
 /**
  * Created by Diaconu Madalina on 23.01.2016.
