@@ -1,12 +1,11 @@
-package com.myapps.smartlistview;
+package com.myapps.smartlistview.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.myapps.smartlistview.bl.SmartListView;
-import com.myapps.smartlistview.model.Test1;
-import com.myapps.smartlistview.model.Test2;
+import com.myapps.smartlistview.R;
+import com.myapps.smartlistview.easyListView.EasyListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +29,8 @@ public class MainActivity extends Activity {
         test2List.add(new Test2("a",R.drawable.user));
         test2List.add(new Test2("b",R.drawable.pass));
 
-        SmartListView smartListView = (SmartListView)findViewById(R.id.smartListView);
+        EasyListView easyListView = (EasyListView)findViewById(R.id.smartListView);
         Log.d("zzznr",test2List.size()+"");
-        smartListView.init(R.layout.view_item_listview2,test2List);
+        easyListView.init(R.layout.view_item_listview2,test2List);
     }
 }

@@ -1,15 +1,15 @@
-package com.myapps.smartlistview.bl;
+package com.myapps.smartlistview.easyListView;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.myapps.smartlistview.model.Widget;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.List;
 /**
  * Created by Diaconu Madalina on 23.01.2016.
  */
-public class SmartListAdapter extends ArrayAdapter<Object> {
+public class EasyListViewAdapter extends ArrayAdapter<Object> {
 
     private Context context;
     private int layout;
     private List<Object> objects;
     private List<Widget> widgets;
 
-    public SmartListAdapter(Context context, int resource, List<Object> objects, List<Widget> widgets) {
+    public EasyListViewAdapter(Context context, int resource, List<Object> objects, List<Widget> widgets) {
         super(context, resource, objects);
         this.context = context;
         this.layout = resource;
@@ -48,6 +48,9 @@ public class SmartListAdapter extends ArrayAdapter<Object> {
                 } else if (v instanceof ImageView){
                     int fieldValue = field.getInt(currentObject);
                     ((ImageView)v).setImageResource(fieldValue);
+                } else if ((v instanceof LinearLayout)||(v instanceof RelativeLayout)||(v instanceof FrameLayout)){
+                    int fieldValue = field.getInt(currentObject);
+                    v.setBackgroundColor(fieldValue);
                 }
             } catch (NoSuchFieldException | IllegalAccessException e) {
                 e.printStackTrace();
