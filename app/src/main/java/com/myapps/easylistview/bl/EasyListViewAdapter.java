@@ -6,9 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -60,6 +57,9 @@ public class EasyListViewAdapter extends ArrayAdapter<Object> {
         List<View> viewList;
     }
 
+    /**
+     * Associate to each view in the row the corresponding widget object
+     */
     private void setRow(int currentObjectPosition, ViewHolderItem viewHolder){
         Object currentObject = objects.get(currentObjectPosition);
         for (int i=0; i<this.widgets.size();i++) {
@@ -69,6 +69,9 @@ public class EasyListViewAdapter extends ArrayAdapter<Object> {
         }
     }
 
+    /**
+     * Initialize a view with the corresponding field in the current object according to the view's class
+     */
     private void setRowElement(Widget widget, View view, Object currentObject){
         try {
             Field field = currentObject.getClass().getDeclaredField(widget.getId());
@@ -77,11 +80,19 @@ public class EasyListViewAdapter extends ArrayAdapter<Object> {
                 String fieldValue = field.get(currentObject).toString();
                 ((TextView) view).setText(fieldValue);
             } else if (view instanceof ImageView) {
-                int fieldValue = field.getInt(currentObject);
-                ((ImageView) view).setImageResource(fieldValue);
+                try {
+                    int fieldValue = field.getInt(currentObject);
+                    ((ImageView) view).setImageResource(fieldValue);
+                } catch (IllegalArgumentException e){
+                    e.printStackTrace();
+                }
             } else {
-                int fieldValue = field.getInt(currentObject);
-                view.setBackgroundColor(fieldValue);
+                try {
+                    int fieldValue = field.getInt(currentObject);
+                    view.setBackgroundColor(fieldValue);
+                } catch (IllegalArgumentException e){
+                    e.printStackTrace();
+                }
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();

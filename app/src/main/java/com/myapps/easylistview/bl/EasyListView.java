@@ -45,19 +45,31 @@ public class EasyListView extends ListView {
         this.context = context;
     }
 
+    /**
+     * Initialize the list view with a row layout and a list of objects
+     * @param layoutId the resource id of the row layout
+     * @param objects the list of objects to be put in the list view
+     * @throws InvalidModelClassException when the class fields names do not map the ids in the layout
+     * @throws InvalidXmlException when the specified resource for the xml cannot be found or when it has an incorrect structure
+     */
     public void init(int layoutId, List<Object> objects) throws InvalidModelClassException, InvalidXmlException {
         this.widgets = new ArrayList<>();
-        getWidgetsFromLayoutXML((Activity) context, layoutId);
+        getWidgetsFromLayoutXML(layoutId);
         String className = objects.get(0).getClass().getName();
         checkClassRequirements(className);
         EasyListViewAdapter easyListViewAdapter = new EasyListViewAdapter(context, layoutId, objects, this.widgets);
         this.setAdapter(easyListViewAdapter);
     }
 
-    private void getWidgetsFromLayoutXML(Activity activity, int layoutId)
+    /***
+     * Parse layout file and initialize the widget list
+     * @param layoutId the row layout resource id
+     * @throws InvalidXmlException when the specified resource for the xml cannot be found or when it has an incorrect structure
+     */
+    private void getWidgetsFromLayoutXML(int layoutId)
             throws InvalidXmlException {
         try {
-            Resources res = activity.getResources();
+            Resources res = context.getResources();
             XmlResourceParser xmlResourceParser = res.getXml(layoutId);
             xmlResourceParser.next();
             int eventType = xmlResourceParser.getEventType();
@@ -72,6 +84,10 @@ public class EasyListView extends ListView {
         }
     }
 
+    /**
+     * Build the widget according to the xml and add it to the widget list
+     * @param xmlResourceParser the resource parser
+     */
     private void addWidgetToList(XmlResourceParser xmlResourceParser){
         String widgetType = xmlResourceParser.getName();
         for (int i = 0; i < xmlResourceParser.getAttributeCount(); i++) {
@@ -85,6 +101,11 @@ public class EasyListView extends ListView {
         }
     }
 
+    /**
+     * Check whether the model class maps its fields to the ids of the layout file
+     * @param className the classes name as a String
+     * @throws InvalidModelClassException when the class has missing fields or there is no class with the given name
+     */
     private void checkClassRequirements(String className) throws InvalidModelClassException {
         try {
             Class clazz = Class.forName(className);
