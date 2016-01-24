@@ -1,4 +1,4 @@
-package com.myapps.easylistview.bl;
+package com.madadiaconu.easylistview.bl;
 
 import android.app.Activity;
 import android.content.Context;

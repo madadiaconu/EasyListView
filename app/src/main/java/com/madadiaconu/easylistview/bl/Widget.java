@@ -1,4 +1,4 @@
-package com.myapps.easylistview.bl;
+package com.madadiaconu.easylistview.bl;
 
 /**
  * Created by Diaconu Madalina on 23.01.2016.

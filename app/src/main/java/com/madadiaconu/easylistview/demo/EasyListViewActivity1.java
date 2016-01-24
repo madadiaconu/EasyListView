@@ -1,12 +1,12 @@
-package com.myapps.easylistview.demo;
+package com.madadiaconu.easylistview.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.myapps.easylistview.R;
-import com.myapps.easylistview.bl.EasyListView;
-import com.myapps.easylistview.exceptions.InvalidModelClassException;
-import com.myapps.easylistview.exceptions.InvalidXmlException;
+import com.madadiaconu.easylistview.R;
+import com.madadiaconu.easylistview.bl.EasyListView;
+import com.madadiaconu.easylistview.exceptions.InvalidModelClassException;
+import com.madadiaconu.easylistview.exceptions.InvalidXmlException;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,14 +1,13 @@
-package com.myapps.easylistview.bl;
+package com.madadiaconu.easylistview.bl;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.util.AttributeSet;
 import android.widget.ListView;
 
-import com.myapps.easylistview.exceptions.InvalidModelClassException;
-import com.myapps.easylistview.exceptions.InvalidXmlException;
+import com.madadiaconu.easylistview.exceptions.InvalidModelClassException;
+import com.madadiaconu.easylistview.exceptions.InvalidXmlException;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

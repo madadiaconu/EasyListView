@@ -1,4 +1,4 @@
-package com.myapps.easylistview.demo;
+package com.madadiaconu.easylistview.demo;
 
 /**
  * Created by Diaconu Madalina on 23.01.2016.

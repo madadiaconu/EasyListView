@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.myapps.easylistview" >
+    package="com.madadiaconu.easylistview" >
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".demo.EasyListViewActivity1"
+            android:name="com.madadiaconu.easylistview.demo.EasyListViewActivity1"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".demo.EasyListViewActivity2">
+        <activity android:name="com.madadiaconu.easylistview.demo.EasyListViewActivity2">
 
         </activity>
 
